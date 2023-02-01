@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "pinia": "^2.0.28",
+    "three": "^0.134.0",
+    "troisjs": "^0.3.4",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6"
   },
