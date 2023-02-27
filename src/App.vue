@@ -3,18 +3,11 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <header class="l-header">
-      <nav class="l-nav" >
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/ahoy">Ahoy</RouterLink>
-      </nav>
-  </header>
-
   <RouterView />
 
   <footer class="l-footer">
-
-      Planetoids, Ahoy!
+      <p>Made with &lt;3 by <a href="https://toot.cat/@lislis" target="_blank">lislis</a></p>
+      <p>Data from <a href="https://api.nasa.gov/" target="_blank">NASA</a>, code available on <a href="">GitHub</a> under <a href="" target="_blank">MIT</a> license.</p>
   </footer>
 </template>
 

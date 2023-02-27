@@ -12,6 +12,9 @@ export const usePlanetStore = defineStore('planets', {
         byDate: (state) => {
             return (date) => state.planets[date];
         },
+        week(state) {
+            return Object.keys(state.planets);
+        }
     },
     actions: {
         reset() {

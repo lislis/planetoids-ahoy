@@ -1,14 +1,21 @@
 <template>
-    <ol class="cal">
-        <li v-for="day in daysSorted">
-            <button type="button" @click="$emit('pickedDate', day)">{{ display(day) }}</button>
-        </li>
-    </ol>
+    <div class="calendar">
+        <ol class="cal">
+            <li v-for="day in daysSorted">
+                <CalendarDay @click="$emit('pickedDate', day)"
+                             :day="day"
+                             :current="current" />
+            </li>
+        </ol>
+    </div>
 </template>
 <script>
+ import CalendarDay from '@/components/CalendarDay.vue';
+
  export default {
      name: 'Calendar',
-     props: ['days'],
+     props: ['days', 'current'],
+     components: { CalendarDay },
      created() {
 
      },
@@ -23,12 +30,25 @@
          }
      },
      methods: {
-         display(dateStr) {
-             const day = new Date(dateStr);
-             const options = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
-             return day.toLocaleDateString('en', options);
-         }
+
      }
  }
 
 </script>
+
+<style>
+ .cal {
+     display: flex;
+     justify-content: space-evenly;
+     padding: 0;
+     list-style: none;
+     margin: 2rem 0 2rem;
+ }
+ .cal li {
+     width: 5rem;
+     line-height: 1.2;
+     margin-right: 1rem;
+     cursor: pointer;
+ }
+
+</style>
