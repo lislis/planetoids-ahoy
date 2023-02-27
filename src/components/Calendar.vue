@@ -37,15 +37,18 @@
 </script>
 
 <style>
+ .calendar {
+
+ }
  .cal {
      display: flex;
-     justify-content: space-evenly;
+     justify-content: center;
      padding: 0;
      list-style: none;
      margin: 2rem 0 2rem;
  }
  .cal li {
-     width: 5rem;
+     width: 5.5rem;
      line-height: 1.2;
      margin-right: 1rem;
      cursor: pointer;

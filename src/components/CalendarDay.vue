@@ -34,11 +34,11 @@
 <style>
 
  .calendar__sheet {
-     transform: scale(0.8);
+     transform: scale(0.6);
      transition: transform 200ms ease-in-out;
  }
  .calendar__sheet.is-active {
-     transform: scale(1.2);
+     transform: scale(1);
  }
 
  .calendar__header {

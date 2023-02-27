@@ -1,36 +1,30 @@
 <template>
     <div class="helper" :style="{
                              'transform': distanceCalc }">
-        <div class="label">Moon</div>
-        <div class="planet moon"
-             :style="{
-                 'width': widthCalc,
-                 'height': widthCalc }">
-
-        </div>
+        <div class="label label--left">Mars</div>
+        <div class="planet mars" :style="{ 'width': widthCalc, 'height': widthCalc }"></div>
     </div>
 </template>
 <script>
 
  export default {
-     name: 'Moon',
+     name: "Mars",
      props: ['scale'],
      data() {
          return {
-             diameter: 3500, // km,
-             distance: 385000 // km
+             diameter: 6791, // km
+             distance: 54600000//km
          }
      },
      computed: {
          widthCalc() {
              if (Math.round(this.diameter * this.scale) < 1) {
-                 return '1px'
+                 return '2px';
              } else {
                  return `${Math.round(this.diameter * this.scale)}px`;
              }
-
          },
-         distanceCalc() {
+          distanceCalc() {
              return `translateY(-${Math.round(this.distance * this.scale)}px)`;
          }
      }
@@ -38,9 +32,10 @@
 </script>
 
 <style>
- .moon {
-     background-color: lightgrey;
+ .mars {
+     background-color: #c94436;
      transition: transform 200ms ease-in-out;
  }
+
 
 </style>

@@ -9,7 +9,7 @@
 
 :root {
   --color-text: white;
-  --color-background: steelblue;
+  --color-background: #091621;
   --pad: 1rem;
 }
 
@@ -26,6 +26,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  overflow-x: hidden;
 }
 
 
@@ -35,7 +36,6 @@ body {
   font-weight: normal;
   min-height: 100vh;
   margin: auto;
-
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -43,15 +43,18 @@ body {
 
 }
 
-.l-header,
 .l-footer {
   width: 100vw;
   padding: var(--pad);
   background-color: grey;
 }
 
-.l-nav a {
-  margin-right: 1em;
+.l-footer {
+  background-color: rgba(200, 200, 200, 0.2);
+  color: white;
+}
+a {
+  color: white;
 }
 
 main {

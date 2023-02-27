@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 export const usePlanetStore = defineStore('planets', {
     state: () => ({
         planets: [],
-        days: [],
+        currentSelected: null
     }),
     getters: {
         all(state) {
@@ -18,7 +18,7 @@ export const usePlanetStore = defineStore('planets', {
     },
     actions: {
         reset() {
-            this.planets = {};
+            this.planets = [];
         },
         initAll(planets) {
             this.planets = planets;
@@ -28,6 +28,9 @@ export const usePlanetStore = defineStore('planets', {
             ks.forEach((v,i) => {
                 this.planets[v] = planets[v];
             });
+        },
+        select(planetoid) {
+            this.currentSelected = planetoid;
         }
     }
 });
