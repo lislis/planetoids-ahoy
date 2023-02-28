@@ -3,16 +3,16 @@
         <h1 class="info__title">On {{dateString}}, these {{store.byDate(currentDate).length }} planetoids are closest to Earth!</h1>
 
         <div v-if="store.currentSelected" class="info__sheet">
-            <h2>{{store.currentSelected.name}}</h2>
+            <h2>Ahoy, {{store.currentSelected.name}}!</h2>
             <ul>
-            <li>is between {{diameter_m_min}}m and {{diameter_m_max}}m large</li>
-            <li>moves at about {{ vel_km_s }} km/s (or {{vel_km_h}}) km/h</li>
-            <li>even at its closest it's {{ distance_km}}km away. That's about {{ distance_lunar }} times the distance from Earth to the Moon.</li>
+            <li>Is between {{diameter_m_min}}m and {{diameter_m_max}}m large</li>
+            <li>Moves at about {{ vel_km_s }} km/s (or {{vel_km_h}} km/h)</li>
+            <li>Even at its closest it's {{ distance_km}}km away. That's about {{ distance_lunar }} times the distance from Earth to the Moon.</li>
 
-            <li>orbits {{this.store.currentSelected.close_approach_data[0].orbiting_body}}</li>
+            <li v-if="orbits !== 'Earth'">Orbits {{orbits}} and not Earth</li>
             <li v-if="store.currentSelected.is_potentially_hazardous_asteroid">is potentially hazardous!</li>
 
-            <li><a :href="store.currentSelected.nasa_jpl_url" target="_blank">read more here</a></li>
+            <li><a :href="store.currentSelected.nasa_jpl_url" target="_blank">Read more here</a></li>
             </ul>
         </div>
         <div  class="info__sheet" v-else>Click on a name to learn more!</div>
@@ -51,6 +51,9 @@
          },
          distance_lunar() {
              return Math.round(this.store.currentSelected.close_approach_data[0].miss_distance.lunar);
+         },
+         orbits() {
+             return this.store.currentSelected.close_approach_data[0].orbiting_body;
          }
      },
      methods: {
